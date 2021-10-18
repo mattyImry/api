@@ -14,4 +14,4 @@ class Address(models.Model):
     county = models.CharField(max_length=80, null=True, blank=True)
 
     def __string__(self):
-        return self.company_name
+        return self.location_name
