@@ -4,7 +4,7 @@ from django_countries.serializers import CountryFieldMixin
 
 
 class AddressSerializer(CountryFieldMixin, serializers.ModelSerializer):
-    """defining model rapresentaion for JSON format"""
+    """defining model rapresentaion"""
 
     company_name = serializers.CharField(max_length=50)
     location_name = serializers.CharField(max_length=80, required=False)
@@ -15,5 +15,5 @@ class AddressSerializer(CountryFieldMixin, serializers.ModelSerializer):
 
     class Meta:
         """ model and fields to serialize"""
-        model = Address()
+        model = Address
         fields = ('__all__')
