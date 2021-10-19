@@ -14,5 +14,6 @@ class Address(models.Model):
     county = models.CharField(max_length=80, null=True, blank=True)
 
     def __str__(self):
-        """ Rendering the names in the database"""
+        """ Rendering the friendly names in the database"""
+
         return str(self.location_name)
