@@ -13,5 +13,6 @@ class Address(models.Model):
     street_address = models.CharField(max_length=80, null=False, blank=False)
     county = models.CharField(max_length=80, null=True, blank=True)
 
-    def __string__(self):
-        return self.location_name
+    def __str__(self):
+        """ Rendering the names in the database"""
+        return str(self.location_name)
