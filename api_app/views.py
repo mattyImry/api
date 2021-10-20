@@ -6,12 +6,11 @@ from .models import Address
 from .serializers import AddressSerializer
 
 
-
 class AddressViews(APIView):
 
     def post(self, request):
-        """ POST request handler"""
 
+        """ POST request handler"""
         serializer = AddressSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -22,6 +21,7 @@ class AddressViews(APIView):
                             status=status.HTTP_400_BAD_REQUEST)
 
     def get(self, request, id=None):
+
         """ GET request handler"""
         if id:
             address_item = Address.objects.get(id=id)
@@ -35,6 +35,7 @@ class AddressViews(APIView):
                          status=status.HTTP_200_OK)
 
     def patch(self, request, id=None):
+
         """ PATCH request handler"""
         address_item = Address.objects.get(id=id)
         serializer = AddressSerializer(address_item, data=request.data,
@@ -46,6 +47,7 @@ class AddressViews(APIView):
             return Response({"status": "error", "data": serializer.errors})
 
     def delete(self, request, id=None):
+
         """ DELETE request handler"""
         address_item = get_object_or_404(Address, id=id)
         address_item.delete()
